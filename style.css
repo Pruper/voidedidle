@@ -1,0 +1,367 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin: 5px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #EEE;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 95%;
+}
+
+td > p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.redText {
+    color: red;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #AAA;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* TOOLTIPS */
+
+#tooltip_anchor {
+    display: none;
+}
+
+#tooltip_main {
+    top: 0;
+    left: 0;
+    /*width: 350px;
+    min-height: 100px;*/
+    padding: 10px;
+    background-color: white;
+    border: 4px solid black;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+/* ENEMY IMAGE */
+
+#enemyContainer {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#enemyBackground {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#enemy {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* POPUP */
+
+.popup-background {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 120%;
+    color: black;
+    display: none;
+}
+
+.popup-content {
+    padding: 20px;
+    width: 500px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.popup-button {
+    color: white;
+    min-width: 100px;
+    background-color: royalblue;
+    padding: 5px;
+    border-radius: 10px;
+    table-layout: fixed;
+    transition: all .2s ease-in-out;
+}
+
+.popup-button:hover {
+    background-color: navy;
+    transition: all .2s ease-in-out
+}
+
+.close-out {
+    position: relative;
+    top: -20px;
+    left: 240px;
+    font-size: 45px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+/* TOGGLE SWITCH */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 15px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: -3px;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    background-color: #cccccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 2px;
+    bottom: 1.5px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: plum;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px purple;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* TABS */
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto;
+    padding: 25px;
+}
+
+.tabs input[type="radio"] {
+    display: none;
+}
+
+.tabs .tab {
+    width: 100%;
+    margin-right: 100px;
+    height: 525px;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+}
+
+.tabs input[type='radio']:checked+label+.tab {
+    display: block;
+}
+
+.tabs input[type="radio"]:checked+label {
+    background: #fff;
+}
+
+.tabImage {
+    padding: 5px;
+}
+
+.tabSelect {
+    border: 2px solid darkgray;
+    border-radius: 15px 15px 0px 0px;
+    margin: 5px 5px 0px 5px;
+    border-bottom: none;
+    width: 128px;
+    text-align: center;
+}
+
+/* MISC */
+
+.framed {
+    border: 4px solid black;
+    border-radius: 20px;
+    background-color: darkgrey;
+}
+
+coin {
+    background: url(assets/graphics/icons/coin.png) no-repeat;
+    background-size: 24px, 24px;
+    image-rendering: pixelated;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    margin-right: -8px;
+}
+
+dcoin {
+    background: url(assets/graphics/icons/diamond_coin.png) no-repeat;
+    background-size: 24px, 24px;
+    image-rendering: pixelated;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    margin-right: -8px;
+}
+
+#zoneInfo {
+    background-color: seashell;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 5px;
+    height: 128px;
+    width: 256px;
+}
+
+.progressHolder {
+    max-width: 384px;
+    margin: left;
+    width: 100%;
+    background-color: gray;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 30px;
+}
+
+.progress {
+    text-anchor: end;
+    width: 100%;
+    height: 20px;
+    background-color: greenyellow;
+}
+
+#soulCoinAnchor {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background: white;
+    margin: 0;
+    padding: 10px;
+}
+
+.charUpgrade {
+    padding: 10px;
+    margin: 10px;
+    background-color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.charUpgrade.diamond {
+    background-color: lightcyan;
+}
+
+.upgradeButton {
+    text-align: top;
+    font-weight: bold;
+    font-size: 20px;
+    width: 160px;
+    height: 100px;
+    margin: 10px;
+    border: 5px solid #7f277f;
+    border-radius: 10px;
+    color: white;
+    background-color: #c77fc7;
+    transition-duration: 0.25s;
+}
+
+.upgradeButton:hover {
+    filter: brightness(120%)
+}
+
+.pixelated {
+    image-rendering: pixelated;
+}
+
+.centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#mainCol {
+    float: left;
+    height: 65%;
+    width: 332px;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab {
+    overflow: hidden;
+    float: left;
+    overflow-y: scroll;
+}
+
+.wideButton {
+    min-width: 200px;
+    font-family: inherit;
+    color: black;
+    background-color: whitesmoke;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: 0.2s ease-in-out;
+}
+
+.wideButton:hover {
+    background-color: lightgrey;
+    transition: 0.2s ease-in-out;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voided Idle</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!--Libraries-->
+    <script src="scripts/bignumber.js"></script>
+    <script src="scripts/base64.js"></script>
+
+    <!--Game-->
+    <script src="scripts/staticdata.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+</head>
+
+<body>
+    <div id="mainCol">
+        <div class="centered">
+            <h1><span id="coinDisplay">0</span> <coin></coin></h1>
+            <h1><span id="diamondCoinDisplay">0</span> <dcoin></dcoin></h1>
+
+
+            <p>Coins Per Second: <span id="cpsDisplay"></span></p>
+            <p>Coins Per Click: <span id="cpcDisplay"></span></p>
+
+            <div id="buttonContainer">
+                <image src="assets/graphics/icons/coin_256.png", id="button" onclick="events.bigCoinClick()" height=256px width=256px></image>
+            </div>
+            <p id="version"></p>
+            <a href="https://www.voidedsky.net/">VoidedSky Website</a>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <input checked=true type="radio" id="upgradeTabButton" name="tabs">
+        <label class="tabSelect" id="upgradeTabLabel" for="upgradeTabButton"><img class="tabImage" height=64px
+                width=64px src="assets/graphics/tabs/players.png"></label>
+        <div class="tab" id="upgradeTab">
+            <h1 class="centered">Characters</h1>
+            <div id="characters">
+
+            </div>
+        </div>
+
+        <input type="radio" id="prestigeTabButton" name="tabs">
+        <label class="tabSelect" id="prestigeTabLabel" for="prestigeTabButton"><img class="tabImage" height=64px
+                width=64px src="assets/graphics/icons/diamond_coin_256.png"></label>
+        <div class="tab" id="prestigeTab">
+            <h1 class="centered">Prestige</h1>
+            <p class="centered" style="font-size:2em;">Prestiging restarts your game, but with extra bonuses - <dcoin></dcoin> and Diamond Multipliers on a random character. Characters with diamond upgrades make extra <coin></coin>, which will help you progress further on your next run. <dcoin></dcoin> currently has no use, but might in the future. Click the button below to view your rewards and to prestige.</p>
+            <button onmouseenter="tooltip.showText('Click to view rewards!')" onmouseleave="tooltip.hide();" onclick="events.prestige.confirm()" class="centered wideButton">PRESTIGE</button>
+        </div>
+
+        <input type="radio" id="saveTabButton" name="tabs">
+        <label class="tabSelect" id="saveTabLabel" for="saveTabButton"><img class="tabImage" height=64px
+                width=64px src="assets/graphics/tabs/save.png"></label>
+        <div class="tab" id="saveTab">
+            <h1 class="centered">Saving</h1>
+            <p><button class="wideButton" onclick="document.getElementById('fileUpload').click()">Load from TXT
+                file</button>
+            <input type='file' accept=".txt" id="fileUpload" style="display:none">
+        <p><button class="wideButton" onclick="save.manualSaveGame(save.getSave())">Save as a TXT file</button></p>
+        <p><button class="wideButton" onclick="save.autoSaveGame(save.getSave())">Save to HTML5 local storage</button></p>
+        <p><button class="wideButton" onclick="popup.display('Are you sure you want to wipe your save? Press WIPE to confirm deletion and reload the page with a new save.', 'WIPE', 'save.wipeAutoSave()')">Wipe save from HTML5 storage</button></p>
+        </div>
+    </div>
+    </div>
+
+    <div id="tooltip_anchor">
+        <div id="tooltip_main" class="tooltip">
+            <div id="tooltip_content"></div>
+        </div>
+    </div>
+
+    <div class="popup-background">
+        <div class="popup-content">
+            <div class="close-out" onclick="popup.hide()">+</div>
+            <div class="popup-text" id="popup-text"></div>
+            <p><br></p>
+            <button class="popup-button" id="popup-button">OK</button>
+        </div>
+    </div>
+</body>
+
+</html>
